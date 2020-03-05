@@ -1,0 +1,20 @@
+{% extends "Layout.html"%}
+{%block content%}
+
+<h4>New User:</h4>
+<p>
+    <form action="" method="post" novalidate>
+        {{ form.hidden_tag() }}
+        <p>
+            <p>{{form.fname.label}} <br>
+                {{ form.fname(size=32) }}</p>
+            <p>{{form.lname.label}} <br>
+                {{ form.lname(size=32) }}</p>
+            <p>{{form.footsize.label}} <br>
+                {{ form.footsize(size=32) }}</p>
+            <p>{{ form.submit() }}</p>
+        </p>
+    </form>
+</p>
+
+{%endblock content%}

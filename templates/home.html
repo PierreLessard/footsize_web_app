@@ -1,0 +1,39 @@
+{% extends "Layout.html"%}
+{%block content%}
+
+{% for user in users %}
+
+<h4>{{ user.fname }} {{user.lname}}</h4>
+<p>
+<form>
+    Footsize: {{user.footsize}}
+    {{unique_url}}
+    <input 
+    type="button" 
+    id = {{user.id}}edit
+    value="Edit"/>
+    <form>
+        <input type="button" 
+        id = {{user.id}}delete
+        value="Delete"/>
+    </form>
+</form>
+<script>
+    id_num = {{user.id}}
+    id_num = id_num.toString()
+    id = id_num.concat('edit')
+    unique_url = `window.location.href =  '/edit/`.concat(id_num,`'`)
+    button = document.getElementById(id)
+    button.setAttribute('onclick',unique_url)
+</script>
+<script>
+    id_num = {{user.id}}
+    id_num = id_num.toString()
+    id = id_num.concat('delete')
+    unique_url = `window.location.href =  '/delete/`.concat(id_num,`'`)
+    button = document.getElementById(id)
+    button.setAttribute('onclick',unique_url)
+</script>
+</p>
+{% endfor %}
+{% endblock content%}
